@@ -71,10 +71,10 @@ class LocationServiceRepository {
         '$count : ${formatDateLog(date)} --> ${formatLog(data)} --- isMocked: ${data.isMocked}\n');
   }
 
-  static double dp(double val, int places) {
-    double mod = pow(10.0, places);
-    return ((val * mod).round().toDouble() / mod);
-  }
+  // static double dp(double val, int places) {
+  //   double mod = pow(10.0, places);
+  //   return ((val * mod).round().toDouble() / mod);
+  // }
 
   static String formatDateLog(DateTime date) {
     return date.hour.toString() +
@@ -85,8 +85,11 @@ class LocationServiceRepository {
   }
 
   static String formatLog(LocationDto locationDto) {
-    return dp(locationDto.latitude, 4).toString() +
-        " " +
-        dp(locationDto.longitude, 4).toString();
+    return locationDto.latitude.toString() +
+        ", " +
+        locationDto.longitude.toString();
+    // return dp(locationDto.latitude, 4).toString() +
+    //     " " +
+    //     dp(locationDto.longitude, 4).toString();
   }
 }
