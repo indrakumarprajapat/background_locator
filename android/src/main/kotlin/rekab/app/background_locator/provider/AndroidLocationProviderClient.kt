@@ -1,14 +1,12 @@
 package rekab.app.background_locator.provider
 
 import android.annotation.SuppressLint
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.os.Bundle
 import androidx.core.content.ContextCompat
-import java.util.*
 
 class AndroidLocationProviderClient(context: Context, override var listener: LocationUpdateListener?) : BLLocationProvider, LocationListener {
     private val client: LocationManager? =
@@ -34,4 +32,7 @@ class AndroidLocationProviderClient(context: Context, override var listener: Loc
     override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
     }
 
+    override fun onProviderEnabled(provider: String) {}
+
+    override fun onProviderDisabled(provider: String) {}
 }
